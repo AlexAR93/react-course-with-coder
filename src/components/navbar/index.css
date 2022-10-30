@@ -1,0 +1,27 @@
+/* 
+.header img{
+    width: 300px;
+    padding: 4rem 0;
+}
+
+.nav{
+    padding: 2rem 0;
+}
+.nav ul{
+    display: flex;
+    list-style: none;
+}
+.nav ul li a{
+    padding: 0 4rem;
+    color: #ffff50;
+    text-decoration: none;
+    text-shadow: 4px 2px 5px #a3a3a3;
+}
+
+.nav ul li a:hover{
+    text-shadow: 4px 2px 5px #bebe3b;
+}
+.nav ul li:hover{
+    transition: transform .2s;
+    transform: scale(.95);
+} */
