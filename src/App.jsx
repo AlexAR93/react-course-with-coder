@@ -1,5 +1,5 @@
 import React from 'react'
-import Header from './components/navbar/index'
+import Header from './components/navbar'
 import { Container } from '@mui/material'
 const App = () => {
   return (
