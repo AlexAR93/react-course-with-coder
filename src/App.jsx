@@ -1,14 +1,8 @@
 import React from 'react'
-import Header from './components/navbar'
-import { Container } from '@mui/material'
-const App = () => {
-  return (
-    <Container>
-        <div className='body'>
-          <Header />
-        </div>
-    </Container>
-  )
-}
+import Home from "./pages/Home"
 
-export default App
+const App = () => {
+  return <Home />;
+};
+
+export default App;
