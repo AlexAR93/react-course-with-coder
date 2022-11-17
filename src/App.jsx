@@ -1,8 +1,8 @@
-import React from 'react'
-import Home from "./pages/Home"
 
+import Routes from "./routes/Routes"
+import './index.css';
 const App = () => {
-  return <Home />;
+  return <Routes />;
 };
 
 export default App;

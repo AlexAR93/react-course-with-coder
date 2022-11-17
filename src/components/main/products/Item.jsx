@@ -5,9 +5,14 @@ import { ProductContainer, Circle, Image, Info, Icon } from './styledComponents'
 const Item = ({ id, title, stock, price, pictureUrl }) => {
     return (
         <ProductContainer>
-            <Circle />
-            <Image src={pictureUrl} />
+            <Circle >
+                <Image  src={pictureUrl}/>
+            </Circle>
+         
+
+            <h2>{title}</h2>
             <Info>
+                
                 <Icon>
                     <LocalOfferOutlined /><strong>$ {price}</strong>
                 </Icon>

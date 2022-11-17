@@ -82,13 +82,18 @@ const ProductContainer = styled.div`
     min-width: 280px;
     height: 350px;
     display: flex;
+    flex-direction:column;
     align-items: center;
     justify-content: center;
-    background-color: #f5fbfd;
+    background-color: #1976D2;
     position: relative;
     &:hover ${Info}{
         opacity: 1;
     }
+    text-align:center;
+    font-size:.7rem;
+    color:#fff;
+    
 `;
 
 const Circle = styled.div`
@@ -96,12 +101,14 @@ const Circle = styled.div`
     height: 200px;
     border-radius: 50%;
     background-color: white;
-    position: absolute;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    
 `;
 
 const Image = styled.img`
-    height: 75%;
-    z-index: 2;
+    main-width:100%;
 `;
 
 const Icon = styled.div`
@@ -114,9 +121,11 @@ const Icon = styled.div`
     justify-content: space-around;
     margin: 10px;
     transition: all 0.5s ease;
+    color:#000;
     &:hover {
-        background-color: #e9f5f5;
+        background-color: #1976D2;
         transform: scale(1.3);
+        color:#fff;
     }
 `;
 
@@ -138,7 +147,6 @@ const ImgContainer = styled.div`
 
 const ImageDetail = styled.img`
     width: 100%;
-    height: 90vh;
     object-fit: cover;
 `;
 

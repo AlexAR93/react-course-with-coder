@@ -15,17 +15,17 @@ const ItemDetail = ({ item }) => {
     return (
         <>
         {
-            item && item.image
+            item && item.url
             ? 
             <DetailContainer>
                 <WrapperDetail>
                     <ImgContainer>
-                        <ImageDetail src={item.image[0]} />
+                        <ImageDetail src={item.url} />
                     </ImgContainer>
                     <InfoContainer>
                         <Title>{item.name}</Title>
                         <Desc>{item.description}</Desc>
-                        <Price>$ {item.cost}</Price>
+                        <Price>$ {item.price}</Price>
                         <Desc>{item.stock} unidades en stock</Desc>
                     </InfoContainer>
                     {
