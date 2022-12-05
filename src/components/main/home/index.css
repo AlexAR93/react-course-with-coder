@@ -1,0 +1,80 @@
+main{
+    padding: 0 !important;
+    max-width: 100%;
+}
+.slider-container{
+    display: flex;
+    max-width: 100%;
+    align-items: center;
+    overflow: hidden;
+    margin: 0 22px;
+}
+.slider-container button{
+    position: absolute;
+}
+.next{
+    right: 0;
+}
+.back{
+    left: 0;
+}
+.slider{
+    max-width: inherit;
+    display: flex; 
+    margin-left: -100%;
+}
+.slider__item{
+    min-width: 100%;
+}
+.slider__item img{
+    width: 100%;
+}
+
+.latest-news-container{
+    overflow: hidden;
+    margin: 1rem;
+}
+
+.latest-news{
+    min-width: 20%;
+    display: flex;
+    justify-content: center;
+}
+
+
+.btn-container{
+    text-align: center;
+    width: 100%;
+}
+
+button{
+    margin: 0 5%;
+    z-index: 10;
+    background: rgba(168, 168, 168, 0.661);
+    border: none;
+    border-radius: 30px;
+    font-size: 50px;
+    padding: 10px 15px;
+    cursor: pointer;
+}
+button:hover{
+    background: #1976D2;
+}
+
+.latest-news-container h2{
+    margin: 0;
+    padding: 10px 0;
+}
+
+@media (min-width:768px) {
+    .latest-news{
+        min-width: 50%;
+        max-width:50%;
+    }
+}
+@media (min-width:571px) {
+    .latest-news{
+        min-width: 50%;
+        max-width:50%;
+    }
+}

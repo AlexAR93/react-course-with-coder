@@ -7,7 +7,10 @@ import Products from "../components/main/products";
 import ItemDetailContainer from "../components/main/products/ItemDetailContainer";
 import { Box,Toolbar} from '@mui/material';
 import Home from "../components/main/home";
+import { useState } from "react";
+import { useEffect } from "react";
 const MyRoutes = () => {
+    
     return (
         <BrowserRouter>
             <Header/>
@@ -25,6 +28,8 @@ const MyRoutes = () => {
             <div>
                 <CartWidget />
             </div>
+
+            <footer>@PC Components</footer>
         </BrowserRouter>
 
     );

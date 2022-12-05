@@ -10,7 +10,7 @@ const ItemDetailContainer = () => {
     const { idItem } = useParams();
 
     useEffect(() => {
-        getProducts('products','asc','date')
+        getProducts('products','createAt','desc')
             .then(result => setDato(result.find(item => item.id === idItem)))
             .catch(err => console.log(err))
     }, []);

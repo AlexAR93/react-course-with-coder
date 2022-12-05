@@ -11,7 +11,7 @@ const ItemListContainer = () => {
 
     //componentDidUpdate
     useEffect(() => {
-        getProducts('products','asc','date')
+        getProducts('products','createAt','desc')
         .then(result => {
             setDatos(result.filter(item => {
             if (idCategory === undefined) 
