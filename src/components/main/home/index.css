@@ -47,7 +47,7 @@ main{
     width: 100%;
 }
 
-button{
+.back,.next{
     margin: 0 5%;
     z-index: 10;
     background: rgba(168, 168, 168, 0.661);
@@ -57,13 +57,16 @@ button{
     padding: 10px 15px;
     cursor: pointer;
 }
-button:hover{
+.back:hover,.next:hover{
     background: #1976D2;
 }
 
 .latest-news-container h2{
     margin: 0;
     padding: 10px 0;
+    text-transform: uppercase;
+    font-size: 1.3rem;
+    font-weight: 100;
 }
 
 @media (min-width:768px) {

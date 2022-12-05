@@ -1,15 +1,18 @@
 import { Button } from '@mui/material';
-import { useState } from 'react';
+import { useState, useContext } from 'react';
 import { Link } from 'react-router-dom';
 import ItemCount from './ItemCount';
 import { DetailContainer, WrapperDetail, ImgContainer, ImageDetail, InfoContainer, Title, Desc, Price } from './styledComponents';
-
+import {CartContext} from '../../../context/CartContext'
 const ItemDetail = ({ item }) => {
     const [itemCount, setItemCount] = useState(0);
+
+    const {addToCart}=useContext(CartContext)
 
     const onAdd = (qty) => {
         alert("You have selected " + qty + " items.");
         setItemCount(qty);
+        addToCart(item, qty)
     }
 
     return (

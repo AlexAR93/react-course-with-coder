@@ -9,28 +9,31 @@ import { Box,Toolbar} from '@mui/material';
 import Home from "../components/main/home";
 import { useState } from "react";
 import { useEffect } from "react";
+import CartContextProvider from "../context/CartContext";
 const MyRoutes = () => {
     
     return (
-        <BrowserRouter>
-            <Header/>
-            <Box component="main" className="main" sx={{ py: 3, px:1 }}>
-                <Toolbar/>
-                <Routes>
-                <Route path='/' element={<Navigate to='/productos'/>} />
-                <Route  path="/inicio" element={<Home/>} />
-                <Route path='/productos' element={<Products />} />
-                <Route path='/productos/category/:idCategory' element={<Products />} />
-                <Route path='/item/:idItem' element={<ItemDetailContainer />} />
-                <Route path='/cart' element={<Cart />} />
-                </Routes>
-            </Box>
-            <div>
-                <CartWidget />
-            </div>
+        <CartContextProvider>
+            <BrowserRouter>
+                <Header/>
+                <Box component="main" className="main" sx={{ py: 3, px:1 }}>
+                    <Toolbar/>
+                    <Routes>
+                    <Route path='/' element={<Navigate to='/productos'/>} />
+                    <Route  path="/inicio" element={<Home/>} />
+                    <Route path='/productos' element={<Products />} />
+                    <Route path='/productos/category/:idCategory' element={<Products />} />
+                    <Route path='/item/:idItem' element={<ItemDetailContainer />} />
+                    <Route path='/cart' element={<Cart />} />
+                    </Routes>
+                </Box>
+                <div>
+                    <CartWidget />
+                </div>
 
-            <footer>@PC Components</footer>
-        </BrowserRouter>
+                <footer>@PC Components</footer>
+            </BrowserRouter>
+        </CartContextProvider>
 
     );
 }
