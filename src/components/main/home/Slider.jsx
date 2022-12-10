@@ -1,8 +1,5 @@
 import React, { useEffect, useRef, useState } from 'react'
-import getProducts from '../../../helpers/getProducts'
 import slider from '../../../Hooks/slider';
-import './index.css';
-
 
 const Slider = ({sliderImg}) => {
     

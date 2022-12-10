@@ -3,7 +3,7 @@ import {Divider } from "@mui/material";
 import Slider from './Slider';
 import LatestNews from './LatestNews';
 import getProducts from '../../../helpers/getProducts';
-
+import './home.css';
 
 const Home = () => {
 

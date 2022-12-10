@@ -3,7 +3,7 @@ let interval=null;
 
 const slider=(width,sliderChildren,btnBackRef,btnNextRef)=>{
       
-    start(sliderChildren)
+    start(sliderChildren,width)
     
     sliderInterval(next,width,sliderChildren)
     
@@ -23,9 +23,12 @@ const slider=(width,sliderChildren,btnBackRef,btnNextRef)=>{
     })
     
 }
-const start=(sliderChildren)=>{
+const start=(sliderChildren,width)=>{
     let sliderSectionEnd = sliderChildren.children[sliderChildren.children.length-1];
     sliderChildren.insertAdjacentElement("afterbegin", sliderSectionEnd);
+    sliderChildren.style.marginLeft=`
+        -${width}%
+    `
 }
 
 
@@ -57,7 +60,7 @@ const sliderInterval=(next,width,sliderChildren)=>{
     clearInterval(interval)
     interval=setInterval(() => {
         next(width,sliderChildren)
-    }, 7300);
+    }, 3333);
 }
 
 export default slider

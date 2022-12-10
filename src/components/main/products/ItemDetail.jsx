@@ -2,7 +2,6 @@ import { Button } from '@mui/material';
 import { useState, useContext } from 'react';
 import { Link } from 'react-router-dom';
 import ItemCount from './ItemCount';
-import { DetailContainer, WrapperDetail, ImgContainer, ImageDetail, InfoContainer, Title, Desc, Price } from './styledComponents';
 import {CartContext} from '../../../context/CartContext'
 const ItemDetail = ({ item }) => {
     const [itemCount, setItemCount] = useState(0);
@@ -20,24 +19,22 @@ const ItemDetail = ({ item }) => {
         {
             item && item.url
             ? 
-            <DetailContainer>
-                <WrapperDetail>
-                    <ImgContainer>
-                        <ImageDetail src={item.url} />
-                    </ImgContainer>
-                    <InfoContainer>
-                        <Title>{item.name}</Title>
-                        <Desc>{item.description}</Desc>
-                        <Price>$ {item.price}</Price>
-                        <Desc>{item.stock} unidades en stock</Desc>
-                    </InfoContainer>
+            <div className='product-detail' >
+                    <div className='product-detail__img-container'>
+                        <img src={item.url} />
+                    </div>
+                    <div className='product-detail__info'>
+                        <h1 className='product-detail__tittle'>{item.name}</h1>
+                        <p className='product-detail__description'>{item.description}</p>
+                        <p className='product-detail__price'>$ {item.price}</p>
+                        <div className='product-detail__stock'>{item.stock} unidades en stock</div>
+                    </div>
                     {
                         itemCount === 0
                         ? <ItemCount stock={item.stock} initial={itemCount} onAdd={onAdd} />
                         : <Link to='/cart' style={{textDecoration: "none"}}><Button variant="contained" color="secondary">CheckOut</Button></Link>
                     }
-                </WrapperDetail>
-            </DetailContainer>
+            </div>
             : <p>Cargando...</p>
         }
         </>

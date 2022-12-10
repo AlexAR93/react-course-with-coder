@@ -5,6 +5,8 @@ import ItemListContainer from './ItemListContainer';
 
 import { styled, alpha } from '@mui/material/styles';
 import KeyboardArrowDownIcon from '@mui/icons-material/KeyboardArrowDown';
+
+import './products.css'
 const StyledMenu = styled((props) => (
   <Menu
     elevation={0}
