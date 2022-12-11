@@ -76,21 +76,30 @@
 
 .latest-new__product{
     min-width: 100%;
-    max-width:100%;
+    overflow: hidden;
     height: 350px;
+    padding: 0;
+    margin: 0;
     display: flex;
-    flex-wrap:wrap;
-    flex-direction:column;
-    align-items: center;
-    background-color: #1976D2;
-    position: relative;
-    text-align:center;
-    font-size:.7rem;
-    color:#fff;
-    transition:all .5s !important;
+    justify-content: center;
 }
 
-.product__info{
+.latest-new__product-container{
+    min-width: 90%;
+    max-width: 90%;
+    height: 300px;
+    padding: 1rem;
+    background-color: #1976D2;
+    border-radius: 33px;
+    color:#fff;
+    text-align:center;
+    display: flex;
+    flex-direction:column;
+    align-items: center;
+    position: relative;
+}
+
+.latest-new__product-info{
     opacity: 0;
     width: 100%;
     height: 100%;
@@ -102,8 +111,9 @@
     align-items: center;
     justify-content: center;
     transition: all 0.5s ease;
+    border-radius: 33px;
 }
-.product__info:hover{
+.latest-new__product-info:hover{
     opacity: 1;
 }
 .product__img-container{
@@ -115,8 +125,7 @@
     justify-content:center;
     align-items:center;
 }
-.product__info span{
-    font-size: 12px;
+.latest-new__product-info span{
     width: 100px;
     height: 40px;
     background-color: white;
@@ -128,7 +137,7 @@
     color:#000;
 }
 
-.product__info span:hover {
+.latest-new__product-info span:hover {
     background-color: #1976D2;
     transform: scale(1.3);
     color:#fff;
@@ -138,27 +147,27 @@
     margin: 0;
     padding: 10px 0;
     text-transform: uppercase;
-    font-size: 1.3rem;
+    font-size: 1rem;
     font-weight: 100;
 }
 
 @media (min-width:571px) {
     .latest-new__product{
-        min-width: 50%;
-        max-width:50%;
+        min-width: 48%;
+        max-width:48%;
     }
 }
 
 @media (min-width:768px) {
     .latest-new__product{
-        min-width: 33.33%;
-        max-width:33.33%;
+        min-width: 30%;
+        max-width:30%;
     }
 }
 @media (min-width:1280px) {
     .latest-new__product{
-        min-width: 25%;
-        max-width:25%;
+        min-width: 24.5%;
+        max-width:24.5%;
     }
 }
 

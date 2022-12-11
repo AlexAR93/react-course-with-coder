@@ -12,19 +12,20 @@ const StyledMenu = styled((props) => (
     elevation={0}
     anchorOrigin={{
       vertical: 'bottom',
-      horizontal: 'right',
+      horizontal: 'center',
     }}
     transformOrigin={{
       vertical: 'top',
-      horizontal: 'right',
+      horizontal: 'center',
     }}
     {...props}
   />
-))(({ theme }) => ({
+))
+(({ theme }) => ({
   '& .MuiPaper-root': {
     borderRadius: 6,
     marginTop: theme.spacing(1),
-    minWidth: 180,
+    minWidth: 300,
     color:
       theme.palette.mode === 'light' ? 'rgb(55, 65, 81)' : theme.palette.grey[300],
     boxShadow:
@@ -58,7 +59,7 @@ const Products = () => {
   };
   return (
 
-    <div>
+    <div className='main-products'>
       <Button
         id="demo-customized-button"
         aria-controls={open ? 'demo-customized-menu' : undefined}
@@ -68,6 +69,7 @@ const Products = () => {
         disableElevation
         onClick={handleClick}
         endIcon={<KeyboardArrowDownIcon />}
+        sx={{mx:6}}
       >
         Categorias
       </Button>

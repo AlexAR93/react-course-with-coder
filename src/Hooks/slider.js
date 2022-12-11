@@ -36,23 +36,23 @@ const next=(width,sliderRef)=>{
 
     let sliderSectionFirst = sliderRef.children[0];
     sliderRef.style.marginLeft = `-${width*2}%`;
-    sliderRef.style.transition = "margin-left .3s";
+    sliderRef.style.transition = "margin-left .5s";
     setTimeout(() => {
         sliderRef.style.transition = "none";
         sliderRef.insertAdjacentElement("beforeend", sliderSectionFirst)
         sliderRef.style.marginLeft = `-${width}%`
-    }, 100); 
+    }, 500); 
 }
 
 const back=(width,sliderRef)=>{
     let sliderSectionFirst = sliderRef.children[sliderRef.children.length-1];
     sliderRef.style.marginLeft = `0`;
-    sliderRef.style.transition = "margin-left .3s";
+    sliderRef.style.transition = "margin-left .5s";
     setTimeout(() => {
         sliderRef.style.transition = "none";
         sliderRef.insertAdjacentElement("afterbegin", sliderSectionFirst)
         sliderRef.style.marginLeft = `-${width}%`
-    }, 100); 
+    }, 500); 
 }
 
 

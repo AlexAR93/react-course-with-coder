@@ -11,10 +11,6 @@ const getProducts = async(collectionName,order,orderType) => {
     
     console.log(data)
     return data;
-
-
-    // const data=await newPromise();  
-    // return data
 }
 
 export default getProducts

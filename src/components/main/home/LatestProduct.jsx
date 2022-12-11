@@ -11,21 +11,23 @@ const Item = ({ id, title, stock, price, pictureUrl, setSliderChildren, products
 
     return (
         <div className='latest-new__product' ref={sliderRef}>
-            <div className='product__img-container'>
-                <img  src={pictureUrl}/>
-            </div>
-         
-            <h2>{title}</h2>
-            <div className='product__info'>
-                <span>
-                    <LocalOfferOutlined /><strong>$ {price}</strong>
-                </span>
-                <span>
-                    <DescriptionOutlined />{stock} unid.
-                </span>
-                <span style={{cursor: "pointer"}}>
-                    <Link to={`/item/${id}`}><InfoOutlined />Detalle</Link>
-                </span>
+            <div className='latest-new__product-container'>
+                <div className='product__img-container'>
+                    <img  src={pictureUrl}/>
+                </div>
+            
+                <h2>{title}</h2>
+                <div className='latest-new__product-info'>
+                    <span>
+                        <LocalOfferOutlined /><strong>$ {price}</strong>
+                    </span>
+                    <span>
+                        <DescriptionOutlined />{stock} unid.
+                    </span>
+                    <span style={{cursor: "pointer"}}>
+                        <Link to={`/item/${id}`}><InfoOutlined />Detalle</Link>
+                    </span>
+                </div>
             </div>
         </div>
     );

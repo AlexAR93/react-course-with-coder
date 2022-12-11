@@ -2,26 +2,9 @@ import React, { useState, useEffect, useRef } from 'react'
 import LatestProduct from './LatestProduct'
 import {start,next,back} from '../../../Hooks/slider';
 const LatestNews = ({products,Divider}) => {
-
-    const [width, setWidth] = useState({
-        px:window.innerWidth,
-        porcentage:window.innerWidth*100/window.innerWidth
-    })
-
     const [sliderChildren, setSliderChildren] = useState([])
-
-
     const btnBackRef= useRef()
     const btnNextRef= useRef()
-
-    useEffect(() => {
-        window.addEventListener('resize',()=>{
-            setWidth({
-                px:window.innerWidth,
-                porcentage:window.innerWidth*100/window.innerWidth
-        })
-        })
-    }, [width.porcentage])
     
     const handleBtnBack=()=>{
         back((sliderChildren.clientWidth*100)/sliderChildren.parentElement.clientWidth,sliderChildren.parentElement)
@@ -31,9 +14,9 @@ const LatestNews = ({products,Divider}) => {
     }
     useEffect(() => {
         sliderChildren?.parentElement?.children&&
-        (start(sliderChildren.parentElement,(sliderChildren.clientWidth*100)/sliderChildren.parentElement.clientWidth),
-        console.log((sliderChildren.parentElement.clientWidth*100)/sliderChildren.parentElement.clientWidth)
-        
+        (start(sliderChildren.parentElement,(sliderChildren.clientWidth*100)/sliderChildren.parentElement.clientWidth)
+        // ,console.log((sliderChildren.parentElement.clientWidth*100)/sliderChildren.parentElement.clientWidth),
+        // console.log((sliderChildren.clientWidth*100)/sliderChildren.parentElement.clientWidth)
         )
     }, [sliderChildren])
 

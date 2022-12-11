@@ -7,7 +7,6 @@ const Item = ({ id, title, stock, price, pictureUrl }) => {
             <div className='product__image-container'>
                 <img src={pictureUrl}/>
             </div>
-         
 
             <h2>{title}</h2>
             <div className='product__info'>

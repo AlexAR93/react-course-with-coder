@@ -15,7 +15,11 @@ const CartContextProvider=(props)=>{
                 qty:qty
             }
         ])):
-        (found.qty += qty)
+        (found.qty += qty,
+            setCartList(c=>c=[
+                ...c
+            ]) 
+            )
     }
     const clear=()=>{
         setCartList([])
@@ -24,12 +28,13 @@ const CartContextProvider=(props)=>{
     const deleteItem=(e)=>{
         setCartList(cartList.filter(product=>product.id!=e.target.value))
     }
-    
-    const productsCalculator=()=>{
-        let cont= cartList.map(item=>item.qty)
 
+
+    const productsCalculator=()=>{
+        let cont=cartList.map(item=>item.qty);
         return cont.reduce(((previousValue, currentValue)=>previousValue+currentValue),0)
     }
+ 
     return(
         <CartContext.Provider value={{cartList, addToCart,clear,deleteItem, productsCalculator}}>
             {props.children}
