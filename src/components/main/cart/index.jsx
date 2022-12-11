@@ -27,8 +27,8 @@ const Cart = () => {
                             <img src={item.url} alt={item.name} />
                         </div>
                         <h2 className="cart__product-tittle">{item.name}</h2>
-                        <p>{item.price*item.qty}</p>
-                        <p>{item.qty} producto/s</p>
+                        <p>{item.qty} Producto/s / ${item.price} c/u</p>
+                        <p>Total: ${item.price*item.qty}</p>
                         <button onClick={deleteItem} value={item.id}>Quitar</button>
                     </article>)
                 }
