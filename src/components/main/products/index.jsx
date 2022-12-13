@@ -6,7 +6,11 @@ import ItemListContainer from './ItemListContainer';
 import { styled, alpha } from '@mui/material/styles';
 import KeyboardArrowDownIcon from '@mui/icons-material/KeyboardArrowDown';
 
+import getProducts from "../../../helpers/getProducts";
+
 import './products.css'
+import { useState } from 'react';
+import { useEffect } from 'react';
 const StyledMenu = styled((props) => (
   <Menu
     elevation={0}
@@ -49,7 +53,9 @@ const StyledMenu = styled((props) => (
   },
 }));
 const Products = () => {
-  const [anchorEl, setAnchorEl] = React.useState(null);
+  const [anchorEl, setAnchorEl] = useState(null);
+  const [date, setDate] = useState([]);
+
   const open = Boolean(anchorEl);
   const handleClick = (event) => {
     setAnchorEl(event.currentTarget);
@@ -57,8 +63,22 @@ const Products = () => {
   const handleClose = () => {
     setAnchorEl(null);
   };
-  return (
 
+
+  useEffect(() => {
+    getProducts('products','createAt','desc')
+        .then(result => setDate(result))
+        .catch(err => console.log(err))
+}, []);
+
+
+  let category={}
+   const newCategory=date.filter(o => category[o.category.id] ? false : category[o.category.id] = true).map(c=>c.category)
+
+  console.log(newCategory)
+
+
+  return (
     <div className='main-products'>
       <Button
         id="demo-customized-button"
@@ -82,32 +102,19 @@ const Products = () => {
         open={open}
         onClose={handleClose}
       >
-        <NavLink to='/productos/category/1'>
-          <MenuItem onClick={handleClose} disableRipple>
-                  <span>Teclado y mouse</span>
-          </MenuItem>
+        {
+          newCategory.map(category=>
+              <NavLink key={category.id} to={`/productos/category/${category.id}`}>
+                <MenuItem onClick={handleClose} disableRipple>
+                  <span>{category.name}</span>
+                </MenuItem>
+                <Divider sx={{ my: 0.5 }} />
+              </NavLink>
+              )
           
-        </NavLink>
-        <Divider sx={{ my: 0.5 }} />
-        <NavLink to='/productos/category/2' >
-          <MenuItem onClick={handleClose} disableRipple>
-                  <span>Mothers y combos</span>
-          </MenuItem>
-        </NavLink>
-        <Divider sx={{ my: 0.5 }} />
-        <NavLink to='/productos/category/3'>
-          <MenuItem onClick={handleClose} disableRipple>
-                <span>Placas de video</span>
-          </MenuItem>
-        </NavLink> 
-        <Divider sx={{ my: 0.5 }} />
-        <NavLink to='/productos/category/4' >
-          <MenuItem onClick={handleClose} disableRipple>
-                <span>Equipos y Notebooks</span>
-          </MenuItem>
-        </NavLink>
+        }
       </StyledMenu>
-      <ItemListContainer/>
+      <ItemListContainer date={date}/>
     </div>
   )
 }
