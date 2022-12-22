@@ -3,7 +3,6 @@ import { useParams } from "react-router";
 
 import getProducts from "../../../helpers/getProducts";
 import ItemDetail from "./ItemDetail";
-// const { products } = require('../utils/products');
 
 const ItemDetailContainer = () => {
     const [dato, setDato] = useState({});

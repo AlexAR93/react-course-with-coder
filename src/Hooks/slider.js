@@ -1,66 +1,69 @@
 
 let interval=null;
 
-const slider=(width,sliderChildren,btnBackRef,btnNextRef)=>{
+const slider=(sliderContainer,btnBackRef,btnNextRef,state=false)=>{
       
-    start(sliderChildren,width)
-    
-    sliderInterval(next,width,sliderChildren)
-    
+    let sliderWidth=(sliderContainer.firstChild.clientWidth*100)/sliderContainer.clientWidth;
 
+    start(sliderContainer,sliderWidth)
+    
+    sliderInterval(next,sliderWidth,sliderContainer,state)
+    
     window.addEventListener('resize',()=>{
         clearInterval(interval)
-        sliderInterval(next,width,sliderChildren)
+        sliderInterval(next,sliderWidth,sliderContainer,state)
     })
 
     btnNextRef.current.addEventListener('click',()=>{
-        next(width,sliderChildren)
-        sliderInterval(next,width,sliderChildren)
+        next(sliderWidth,sliderContainer)
+        sliderInterval(next,sliderWidth,sliderContainer,state)
     })
     btnBackRef.current.addEventListener('click',()=>{
-        back(width,sliderChildren)
-        sliderInterval(next,width,sliderChildren)
+        back(sliderWidth,sliderContainer)
+        sliderInterval(next,sliderWidth,sliderContainer,state)
     })
     
 }
-const start=(sliderChildren,width)=>{
-    let sliderSectionEnd = sliderChildren.children[sliderChildren.children.length-1];
-    sliderChildren.insertAdjacentElement("afterbegin", sliderSectionEnd);
-    sliderChildren.style.marginLeft=`
-        -${width}%
+const start=(sliderContainer,sliderWidth)=>{
+    let sliderSectionEnd = sliderContainer.children[sliderContainer.children.length-1];
+    sliderContainer.insertAdjacentElement("afterbegin", sliderSectionEnd);
+    sliderContainer.style.marginLeft=`
+        -${sliderWidth}%
     `
 }
 
 
-const next=(width,sliderRef)=>{
+const next=(sliderWidth,sliderRef)=>{
 
     let sliderSectionFirst = sliderRef.children[0];
-    sliderRef.style.marginLeft = `-${width*2}%`;
+    sliderRef.style.marginLeft = `-${sliderWidth*2}%`;
     sliderRef.style.transition = "margin-left .5s";
     setTimeout(() => {
         sliderRef.style.transition = "none";
         sliderRef.insertAdjacentElement("beforeend", sliderSectionFirst)
-        sliderRef.style.marginLeft = `-${width}%`
+        sliderRef.style.marginLeft = `-${sliderWidth}%`
     }, 500); 
 }
 
-const back=(width,sliderRef)=>{
+const back=(sliderWidth,sliderRef)=>{
     let sliderSectionFirst = sliderRef.children[sliderRef.children.length-1];
     sliderRef.style.marginLeft = `0`;
     sliderRef.style.transition = "margin-left .5s";
     setTimeout(() => {
         sliderRef.style.transition = "none";
         sliderRef.insertAdjacentElement("afterbegin", sliderSectionFirst)
-        sliderRef.style.marginLeft = `-${width}%`
+        sliderRef.style.marginLeft = `-${sliderWidth}%`
     }, 500); 
 }
 
 
-const sliderInterval=(next,width,sliderChildren)=>{
-    clearInterval(interval)
+const sliderInterval=(next,sliderWidth,sliderContainer,state)=>{
+    state==true&&(
+    clearInterval(interval),
     interval=setInterval(() => {
-        next(width,sliderChildren)
-    }, 3333);
+        next(sliderWidth,sliderContainer)
+    }, 3333)
+    )
 }
 
 export default slider

@@ -1,16 +1,9 @@
 import { DescriptionOutlined, InfoOutlined, LocalOfferOutlined } from '@mui/icons-material';
-import { useEffect, useRef } from 'react';
 import { Link } from 'react-router-dom';
 
-const Item = ({ id, title, stock, price, pictureUrl, setSliderChildren, products }) => {
-  
-    const sliderRef=useRef()
-    useEffect(() => {
-        setSliderChildren(sliderRef.current)
-    }, [products])
-
+const Item = ({ id, title, stock, price, pictureUrl }) => {
     return (
-        <div className='latest-new__product' ref={sliderRef}>
+        <div className='latest-new__product'>
             <div className='latest-new__product-container'>
                 <div className='product__img-container'>
                     <img  src={pictureUrl}/>

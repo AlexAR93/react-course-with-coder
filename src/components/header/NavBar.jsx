@@ -1,12 +1,10 @@
 import React from "react";
 import { AppBar,Box,Toolbar,Typography,Button,Divider,Drawer,IconButton,ListItemButton,ListItemText } from "@mui/material";
-import { Link, NavLink } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 import MenuIcon from '@mui/icons-material/Menu';
 
 const drawerWidth = 240;
 const navItems = ['Inicio', 'Productos', 'Ayuda', 'Contacto'];
-
-import './nav.css';
 
 const NavBar = () => {
     const [mobileOpen, setMobileOpen] = React.useState(false);
@@ -79,22 +77,6 @@ const drawer = (
           >
             {drawer}
           </Drawer>
-  
-            {/* <Wrapper>
-                <Left>
-                    <Link to='/' style={{textDecoration: "none", color: "white"}}><Logo>WOLF STORE</Logo></Link>
-                </Left>
-                <Center>
-                    <Link to='/category/9' style={{textDecoration: "none", color: "white"}}><MenuItem>Sin Alcohol</MenuItem></Link>
-                    <Link to='/category/1' style={{textDecoration: "none", color: "white"}}><MenuItem>Vinos</MenuItem></Link>
-                    <Link to='/category/5' style={{textDecoration: "none", color: "white"}}><MenuItem>Licores</MenuItem></Link>                    
-                </Center>
-                <Right>
-                    <MenuItem>REGISTER</MenuItem>
-                    <MenuItem>SIGN IN</MenuItem>
-                    <MenuItem><CartWidget /></MenuItem>
-                </Right>
-            </Wrapper> */}
         </AppBar>
     );
 }

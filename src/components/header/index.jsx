@@ -1,7 +1,5 @@
 import React from 'react'
 import NavBar from './NavBar'
-
-
 const Header = () => {
   return (
     <header>
@@ -9,5 +7,4 @@ const Header = () => {
     </header>
   )
 }
-
 export default Header

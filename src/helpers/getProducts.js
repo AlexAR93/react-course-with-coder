@@ -1,4 +1,3 @@
-// import products from "../utils/products";
 import {collection,getDocs, orderBy,query} from 'firebase/firestore';
 import{db} from '../firebase/config.js'
 
@@ -9,7 +8,6 @@ const getProducts = async(collectionName,order,orderType) => {
   
     const data=getData.docs.map(product=>({id:product.id,...product.data()}))
     
-    console.log(data)
     return data;
 }
 

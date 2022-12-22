@@ -26,10 +26,9 @@ const Slider = ({sliderImg}) => {
     useEffect(() => {
         setSliderChildren(sliderRef.current)
         sliderChildren?.children?.length>1&&(
-            slider(width.porcentage,sliderChildren,btnBackRef,btnNextRef)
+            slider(sliderChildren,btnBackRef,btnNextRef,true)
         )
     }, [sliderChildren])
-
 
     return (
         <div className="slider-container">

@@ -75,8 +75,6 @@ const Products = () => {
   let category={}
    const newCategory=date.filter(o => category[o.category.id] ? false : category[o.category.id] = true).map(c=>c.category)
 
-  console.log(newCategory)
-
 
   return (
     <div className='main-products'>

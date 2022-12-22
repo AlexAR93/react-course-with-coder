@@ -1,41 +1,49 @@
 import React, { useState, useEffect, useRef } from 'react'
 import LatestProduct from './LatestProduct'
-import {start,next,back} from '../../../Hooks/slider';
+import slider from '../../../Hooks/slider';
 const LatestNews = ({products,Divider}) => {
     const [sliderChildren, setSliderChildren] = useState([])
+    const [width, setWidth] = useState({})
+
     const btnBackRef= useRef()
     const btnNextRef= useRef()
-    
-    const handleBtnBack=()=>{
-        back((sliderChildren.clientWidth*100)/sliderChildren.parentElement.clientWidth,sliderChildren.parentElement)
-    }
-    const handleBtnNext=()=>{
-        next((sliderChildren.clientWidth*100)/sliderChildren.parentElement.clientWidth,sliderChildren.parentElement)
-    }
+    const sliderRef=useRef()
+
     useEffect(() => {
-        sliderChildren?.parentElement?.children&&
-        (start(sliderChildren.parentElement,(sliderChildren.clientWidth*100)/sliderChildren.parentElement.clientWidth)
-        // ,console.log((sliderChildren.parentElement.clientWidth*100)/sliderChildren.parentElement.clientWidth),
-        // console.log((sliderChildren.clientWidth*100)/sliderChildren.parentElement.clientWidth)
-        )
+        window.addEventListener('resize',()=>{
+            setWidth({
+                px:window.innerWidth,
+                porcentage:window.innerWidth*100/window.innerWidth
+        })
+        })
+    }, [width.porcentage])
+
+
+    useEffect(() => {
+        setSliderChildren(sliderRef.current)
+    }, [products])
+
+    useEffect(() => {
+        sliderChildren?.children&&
+        slider(sliderChildren,btnBackRef,btnNextRef)
     }, [sliderChildren])
 
-
+    
   return (
     <div className='latest-news'>
         <h2>Ultimas novedades</h2>
         <Divider/>
         <div className='latest-news__container'>
 
-            <div className='latest-news-carts'>
+            <div className='latest-news-carts'  ref={sliderRef}>
                 {
-                    products.map(item => (<LatestProduct key={item.id} id={item.id} title={item.name} price={item.price} pictureUrl={item.url} stock={item.stock} sliderChildren setSliderChildren={setSliderChildren} products={products}/>))
+                    products.map(item => (<LatestProduct key={item.id} id={item.id} title={item.name} price={item.price} pictureUrl={item.url} stock={item.stock}/>))
                 }
             </div>
         </div>
         <div className='btn-container'>
-        <button className='back' ref={btnBackRef} onClick={handleBtnBack}>{'<'}</button>
-        <button className='next' ref={btnNextRef} onClick={handleBtnNext}>{'>'}</button>
+        <button className='back' ref={btnBackRef}>{'<'}</button>
+        <button className='next' ref={btnNextRef}>{'>'}</button>
         </div>
     </div>
   )
