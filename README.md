@@ -6,14 +6,16 @@ Es un e-commerce simple hecho con react
 
 ## Screenshots
 
+![App Screenshot](./readme-image/Screenshot%202022-12-22%20052706.png)
+![App Screenshot](./readme-image/Screenshot%202022-12-22%20052743.png)
 ![App Screenshot](./readme-image/Screenshot%202022-12-22%20052615.png)
-![App Screenshot](./readme-image/Screenshot%202022-12-22%20052706.png)
-![App Screenshot](./readme-image/Screenshot%202022-12-22%20052706.png)
 
 
 ## Comenzando 🚀
 
 Estas instrucciones te permitirán obtener una copia del proyecto en funcionamiento en tu máquina local para propósitos de desarrollo y pruebas.
+
+Mira **Deployment** para conocer como desplegar el proyecto.
 
 ### Pre-requisitos 📋
 
