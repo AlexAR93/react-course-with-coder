@@ -1,15 +1,14 @@
-
 let interval=null;
 
 const slider=(sliderContainer,btnBackRef,btnNextRef,state=false)=>{
       
     let sliderWidth=(sliderContainer.firstChild.clientWidth*100)/sliderContainer.clientWidth;
-
     start(sliderContainer,sliderWidth)
     
     sliderInterval(next,sliderWidth,sliderContainer,state)
     
     window.addEventListener('resize',()=>{
+        sliderWidth=(sliderContainer.firstChild.clientWidth*100)/sliderContainer.clientWidth;
         clearInterval(interval)
         sliderInterval(next,sliderWidth,sliderContainer,state)
     })
@@ -32,30 +31,28 @@ const start=(sliderContainer,sliderWidth)=>{
     `
 }
 
+const next=(sliderWidth,sliderContainer)=>{
 
-const next=(sliderWidth,sliderRef)=>{
-
-    let sliderSectionFirst = sliderRef.children[0];
-    sliderRef.style.marginLeft = `-${sliderWidth*2}%`;
-    sliderRef.style.transition = "margin-left .5s";
+    let sliderSectionFirst = sliderContainer.children[0];
+    sliderContainer.style.marginLeft = `-${sliderWidth*2}%`;
+    sliderContainer.style.transition = "margin-left .5s";
     setTimeout(() => {
-        sliderRef.style.transition = "none";
-        sliderRef.insertAdjacentElement("beforeend", sliderSectionFirst)
-        sliderRef.style.marginLeft = `-${sliderWidth}%`
+        sliderContainer.style.transition = "none";
+        sliderContainer.insertAdjacentElement("beforeend", sliderSectionFirst)
+        sliderContainer.style.marginLeft = `-${sliderWidth}%`
     }, 500); 
 }
 
-const back=(sliderWidth,sliderRef)=>{
-    let sliderSectionFirst = sliderRef.children[sliderRef.children.length-1];
-    sliderRef.style.marginLeft = `0`;
-    sliderRef.style.transition = "margin-left .5s";
+const back=(sliderWidth,sliderContainer)=>{
+    let sliderSectionFirst = sliderContainer.children[sliderContainer.children.length-1];
+    sliderContainer.style.marginLeft = `0`;
+    sliderContainer.style.transition = "margin-left .5s";
     setTimeout(() => {
-        sliderRef.style.transition = "none";
-        sliderRef.insertAdjacentElement("afterbegin", sliderSectionFirst)
-        sliderRef.style.marginLeft = `-${sliderWidth}%`
+        sliderContainer.style.transition = "none";
+        sliderContainer.insertAdjacentElement("afterbegin", sliderSectionFirst)
+        sliderContainer.style.marginLeft = `-${sliderWidth}%`
     }, 500); 
 }
-
 
 const sliderInterval=(next,sliderWidth,sliderContainer,state)=>{
     state==true&&(

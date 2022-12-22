@@ -27,7 +27,6 @@ const LatestNews = ({products,Divider}) => {
         sliderChildren?.children&&
         slider(sliderChildren,btnBackRef,btnNextRef)
     }, [sliderChildren])
-
     
   return (
     <div className='latest-news'>

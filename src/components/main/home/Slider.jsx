@@ -25,7 +25,7 @@ const Slider = ({sliderImg}) => {
 
     useEffect(() => {
         setSliderChildren(sliderRef.current)
-        sliderChildren?.children?.length>1&&(
+        sliderChildren?.children?.length>0&&(
             slider(sliderChildren,btnBackRef,btnNextRef,true)
         )
     }, [sliderChildren])

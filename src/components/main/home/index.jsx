@@ -23,7 +23,6 @@ const Home = () => {
   if(sliderImg.length && products.length){
     return(
       <div>
-        
           <Slider sliderImg={sliderImg} />
           <LatestNews products={products} Divider={Divider} />
       </div>

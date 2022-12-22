@@ -3,9 +3,7 @@ import { Link } from "react-router-dom";
 import {CartContext} from "../../../context/CartContext";
 import './cart.css'
 const Cart = () => {
-
     const {cartList, clear, deleteItem}= useContext(CartContext)
-
     return (
         <div className="cart">
             <div className="cart__header">
